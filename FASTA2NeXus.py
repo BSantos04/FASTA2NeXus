@@ -41,16 +41,17 @@ def main():
     But fisrt we need to parse the command line arguments.
     We will raise an exception if the command line arguments doesn`t correspond with the asked.
     """
-    if len(sys.argv) !=3:
-        print("Try this instead: python3 FASTA2NeXus.py {.fasta file/input file} {.nex file/output file}")
+    if len(sys.argv) > 3:
+        print("Try this instead: python3 FASTA2NeXus.py {.fasta file} {.nex file }(optional)")
     else:
         fasta_dict=fasta_to_dict(sys.argv[1])
         header=nexus_header(fasta_dict)
         print(nexus_converter(header, fasta_dict)) 
-        output_file = sys.argv[2]
-        with open(output_file, "w") as out:
-            out.write(nexus_converter(header, fasta_dict))
-        print("\n\n\nNeXus file saved sucessfully!\nGo check the file on your directory.")
+        if len(sys.argv)==3:
+            output_file = sys.argv[2]
+            with open(output_file, "w") as out:
+                out.write(nexus_converter(header, fasta_dict))
+                print("\n\n\nNeXus file saved sucessfully!\nGo check the file on your directory.")
     
 if __name__=="__main__":
     """
