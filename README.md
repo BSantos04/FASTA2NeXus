@@ -12,8 +12,11 @@ This script was proposed in the curricular unit of Biological Sequences Analysis
 The input file in the FASTA format. Doesn`t matter if the file does not finish with a ".fasta", the program only have the content in consideration.
 #### NeXus file
 This one is optional.
+
 If you input another file as an output file, the program will print the NeXus content displayed in the terminal, and print a mesage that warns you that the file was sucessfully created.
+
 If there is no file with the same name the program create the file, otherwise it will overwrite the content into that file.
+
 The same happens with the NeXus file/output file as with the FASTA file/input file, it doesn´t matter if you write .nex at the end of the file or not, the content will be at the NeXus format.
 ### FASTA2NeXus_unittest.py
 `python3 FASTA2NeXus_unittest.py` 
