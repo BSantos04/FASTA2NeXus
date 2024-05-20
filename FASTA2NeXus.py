@@ -42,7 +42,7 @@ def main():
     We will raise an exception if the command line arguments doesn`t correspond with the asked.
     """
     if len(sys.argv) !=3:
-        print("Try this instead: python3 FASTA2NeXus.py {.fasta file} {.nex file}")
+        print("Try this instead: python3 FASTA2NeXus.py {.fasta file/input file} {.nex file/output file}")
     else:
         fasta_dict=fasta_to_dict(sys.argv[1])
         header=nexus_header(fasta_dict)
