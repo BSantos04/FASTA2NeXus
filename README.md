@@ -1,13 +1,13 @@
 # FASTA2NeXus
-Converts FASTA file into NeXus files.
-This repository also contains the unit tests for each one of the functions written in the script.
+Converts FASTA file into NeXus files (FASTA2NeXus.py).
+This repository also contains the unit tests for each one of the functions written in the script (FASTA2NeXus_unittest.py).
 ## Motivation
 This script was proposed in the curricular unit of Biological Sequences Analysis of the Bioinformatics course. 
 ## Requisities
 -Python3
 ## Usage
 ### FASTA2NeXus.py
-`python3 FATSA2NeXus.py {FASTA file/input file} {NeXus file/output file}(optional)` 
+`python3 FASTA2NeXus.py {FASTA file/input file} {NeXus file/output file}(optional)` 
 #### FASTA file
 The input file in the FASTA format. Doesn`t matter if the file does not finish with a ".fasta", the program only have the content in consideration.
 #### NeXus file
