@@ -1,24 +1,4 @@
-import argparse
-
-def parse_args():
-    """
-    Before starting retrieving the sequences, first we need to parse the command line arguments to prevent any future misuse from the user.
-    
-    For that, we use the method argparse.ArgumentParser() to contain the argument specifications. 
-    
-    After that, we need to specify the arguments we want to attach to the parser.
-    
-    In that case, we want to attach the FASTA file we want to use as input.
-    
-    If the file argument is missing, the terminal will display a message with the required missing argument and exit the program.
-    
-    If there is any extra argument, the terminal will display the unrecognized arguments and close the program.
-    
-    Returns the FASTA file as argument from the command line using argparse.Namespace.
-    """
-    parser=argparse.ArgumentParser()  
-    parser.add_argument("fasta_file", help="\nYou didn't selected a FASTA file.")
-    return parser.parse_args().fasta_file
+import sys
 
 def fasta_to_dict(file):
     """
@@ -58,11 +38,19 @@ def nexus_converter(header, fasta_dict):
 def main():
     """
     This function is where everything happens.
+    But fisrt we need to parse the command line arguments.
+    We will raise an exception if the command line arguments doesn`t correspond with the asked.
     """
-    fasta_file=parse_args()
-    fasta_dict=fasta_to_dict(fasta_file)
-    header=nexus_header(fasta_dict)
-    print(nexus_converter(header, fasta_dict)) 
+    if len(sys.argv) !=3:
+        print("Try this instead: python3 FASTA2NeXus.py {.fasta file} {.nex file}")
+    else:
+        fasta_dict=fasta_to_dict(sys.argv[1])
+        header=nexus_header(fasta_dict)
+        print(nexus_converter(header, fasta_dict)) 
+        output_file = sys.argv[2]
+        with open(output_file, "w") as out:
+            out.write(nexus_converter(header, fasta_dict))
+        print("\n\n\nNeXus file saved sucessfully!\nGo check the file on your directory.")
     
 if __name__=="__main__":
     """
