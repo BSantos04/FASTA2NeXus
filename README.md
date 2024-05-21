@@ -21,4 +21,4 @@ The same happens with the NeXus file/output file as with the FASTA file/input fi
 ### FASTA2NeXus_unittest.py
 `python3 FASTA2NeXus_unittest.py` 
 ## License
-GNU v3 License
+GPL-3.0 License
